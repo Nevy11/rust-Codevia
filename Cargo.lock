@@ -128,7 +128,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust-Codevia"
+name = "rust-codevia"
 version = "0.1.0"
 dependencies = [
  "pyo3",
