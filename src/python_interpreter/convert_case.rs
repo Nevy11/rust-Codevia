@@ -11,35 +11,12 @@ pub fn run_python_code() -> String {
     })
 }
 
-// pub fn process_python_string(input: &str) -> String {
-//     Python::attach(|py| {
-//         let code = c_str!("input_str");
-//         let locals = [("input_str", input)].into_py_dict(py);
-//         let result: String = py
-//             .eval(code, None, Some(&locals.unwrap()))
-//             .unwrap()
-//             .extract()
-//             .unwrap();
-//         result
-//     })
-// }
-
 pub fn process_python_string(code: &str) -> i32 {
     Python::attach(|py| {
         // Locals for variable sharing
         let locals = [("input_str", "Hello from Rust!")]
             .into_py_dict(py)
             .unwrap();
-
-        // Multi-line Python code
-        //         let code = r#"
-        // print("hello from rust")
-        // a = 5
-        // b = 10
-        // c = a + b
-        // print(c)
-        // result = c  # store result so Rust can extract it
-        // "#;
 
         // Convert Rust string -> CString for safety
         let c_code = CString::new(code).unwrap();
