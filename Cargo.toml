@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 pyo3 = { version = "0.26.0", features = ["auto-initialize"] }
+wasm-bindgen = "0.2"
